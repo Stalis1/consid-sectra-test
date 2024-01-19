@@ -33,11 +33,13 @@ public static class InputParser
         var register = RegisterFactory.GetRegister(split[0]);
         var command = split[1];
         var source = split[2];
-        var isValue = int.TryParse(source, out int value);
+        var isValue = long.TryParse(source, out long value);
 
         if (isValue)
         {
-            return CreateOperation(command, register, value);
+            //Currently only allowing int as max value
+            if (Math.Abs(value) > int.MaxValue) throw new Exception("Value is too large");
+            return CreateOperation(command, register, (int)value);
         }
         else if (IsValidRegisterName(source))
         {

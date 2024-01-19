@@ -3,15 +3,5 @@ public class AddOperation(Register register, int? value, Register? source) : Ope
 {
     public const string Command = "add";
 
-    public override void Execute()
-    {
-        if (Value.HasValue)
-        {
-            Register.Value += Value.Value;
-        }
-        else if (RegisterSource != null)
-        {
-            Register.Value += RegisterSource.Value;
-        }
-    }
+    protected override int Calculate(int registerValue, int value) => checked(registerValue + value);
 }

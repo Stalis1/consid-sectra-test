@@ -3,15 +3,5 @@ public class SubtractOperation(Register register, int? value, Register? source) 
 {
     public const string Command = "subtract";
 
-    public override void Execute()
-    {
-        if (Value.HasValue)
-        {
-            Register.Value -= Value.Value;
-        }
-        else if (RegisterSource != null)
-        {
-            Register.Value -= RegisterSource.Value;
-        }
-    }
+    protected override int Calculate(int registerValue, int value) => checked(registerValue - value);
 }
