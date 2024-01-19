@@ -23,6 +23,7 @@ public class InputHandler
             }
 
             var (isValidPrintCommand, register) = InputParser.IsPrintCommand(input);
+
             if (isValidPrintCommand && register != null)
             {
                 var result = _operationSequencer.ExecuteFor(register);
