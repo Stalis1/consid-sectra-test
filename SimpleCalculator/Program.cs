@@ -3,9 +3,10 @@ using SimpleCalculator.Operations;
 
 var inputHandler = new InputHandler();
 Console.WriteLine("Simple calculator");
-Console.WriteLine("Instructions: Use one the following two commands");
-Console.WriteLine(" <register> <operation> <value>");
-Console.WriteLine(" print <register>");
+Console.WriteLine("Instructions: Use one the following three commands");
+Console.WriteLine(" <register> <operation> <value> - Applies the <operation> using <register> and <value> and stores the result in <register>. <value> can be either a number or a register. Examples: a add 2, a subtract b");
+Console.WriteLine(" print <register> - Evaluates the value of <register> and prints it");
+Console.WriteLine(" quit");
 Console.WriteLine("Input commands either as a file by launching app with command line argument of file path or by manual input below.");
 Console.WriteLine("");
 Console.WriteLine($"Implemented operations are: {AddOperation.Command}, {SubtractOperation.Command}, {MultiplyOperation.Command}");
