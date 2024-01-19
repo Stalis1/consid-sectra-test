@@ -21,7 +21,6 @@ public static class InputParser
 
         return (isValidPrintCommand, register);
     }
-
     public static IOperation ParseInput(string input)
     {
         var split = input.Split(' ');
@@ -47,7 +46,6 @@ public static class InputParser
         }
         throw new Exception("Unable to parse input");
     }
-
     private static IOperation CreateOperation(string command, Register register, int? value = null, Register? source = null)
     {
         return command switch
@@ -58,6 +56,5 @@ public static class InputParser
             _ => throw new ArgumentException($"Unknown command \"{command}\""),
         };
     }
-
     private static bool IsValidRegisterName(string registerName) => registerName.All(char.IsLetterOrDigit);
 }

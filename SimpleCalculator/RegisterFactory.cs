@@ -15,6 +15,5 @@ public static class RegisterFactory
 
         return register;
     }
-
     public static void Flush() => _registers.Clear();
 }

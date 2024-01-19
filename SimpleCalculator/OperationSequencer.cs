@@ -6,7 +6,6 @@ public class OperationSequencer
     private List<IOperation> Operations { get; set; } = [];
 
     public void AppendOperation(IOperation operation) => Operations.Add(operation);
-
     /// <summary>
     /// Executes operation sequence for a given register
     /// </summary>
@@ -18,7 +17,6 @@ public class OperationSequencer
 
         return register.Value;
     }
-
     /// <summary>
     /// Recursively executes all operations. Order of execution is based on given register.
     /// DependencyRegisters is used to keep track of what registers and operations are allowed to be executed for the given recursion loop.

@@ -9,9 +9,7 @@ public abstract class Operation : IOperation
         if (source != null) RegisterSource = source;
     }
     public Register Register { get; }
-
     public int? Value { get; }
-
     public Register? RegisterSource { get; }
 
     /// <summary>
@@ -22,12 +20,9 @@ public abstract class Operation : IOperation
     /// <param name="value"></param>
     /// <returns></returns>
     protected abstract int Calculate(int registerValue, int value);
-
     public void Execute()
     {
-        int value = Value.HasValue
-            ? Value.Value
-            : (RegisterSource?.Value ?? throw new Exception("Operation has neither value nor a source register with a value"));
+        int value = Value ?? RegisterSource?.Value ?? throw new Exception("Operation has neither value nor a source register with a value");
 
         //Overflow check
         try
@@ -39,5 +34,4 @@ public abstract class Operation : IOperation
             throw new Exception("Overflow!");
         }
     }
-
 }
